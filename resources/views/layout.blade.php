@@ -10,14 +10,14 @@
     {{-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> --}}
     <!-- <script src="https://use.fontawesome.com/5d33201c90.js"></script> -->
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- <link rel="stylesheet" type="text/css" href="assets/sass/partials/_footer.css"> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
     @yield('header')
 </head>
 <body>
@@ -28,12 +28,13 @@
         <div class="navigation">
             <ul>
                 @if (Auth::user())
-                    <li class="menuListItem"><a href="activity" class="menuItem">Activity</a></li>
+                    <li class="menuListItem"><a href="/activity" class="menuItem">Activity</a></li>
                 @endif
                 <li class="menuListItem"><a href="/discover" class="menuItem">Discover</a></li>
+                
                 @if (Auth::user())
                     <li class="menuListItem"><a href="/profile" class="menuItem">Profile</a></li>
-                    <li class="addWork text-center"><a href="add">
+                    <li class="addWork text-center"><a href="/add">
                     <i class="fa fa-cloud-upload" aria-hidden="true"></i> Add Work
                 </a></li>
                 @endif
@@ -116,13 +117,13 @@
     @yield('content')
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery-1.12.4.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/ali.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/upload.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/ali.js"></script>
+    <script src="/assets/js/settings.js"></script>
+    <script src="/assets/js/upload.js"></script>
     
 </body>
 

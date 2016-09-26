@@ -8,8 +8,19 @@ use App\Http\Requests;
 
 use Auth;
 
+use App\Share;
+use App\User;
+
 class UsersController extends Controller
 {
+    private $user;
+    public function __construct(){
+
+        $this->user=Auth::user();
+    }
+    
+
+
     public function login() {
     	return view('users.login');
     }
@@ -17,15 +28,26 @@ class UsersController extends Controller
     public function settings() {
     	if(Auth::guest())
         return redirect()->action('UsersController@login');
-    
+
     	return view('users.settings');
     }
 
-    public function profile() {
+   public function profile() {
         if(Auth::guest())
+
         return redirect()->action('UsersController@login');
 
-    	return view('users.profile');
+        $shares =$this->user->shares;
+        return view('users.profile', compact('shares'));
+    }
+
+    public function userP(User $user) {
+        if(Auth::guest())
+
+        return redirect()->action('UsersController@login');
+
+        $share = $user->shares;
+        return view('users.userP', compact('share','user'));
     }
 
     public function discover() {

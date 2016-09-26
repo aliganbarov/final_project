@@ -472,6 +472,8 @@ body {
         #teymur #projects .mycon #down .row .left .one h1 {
           font-size: 21px;
           margin-top: 1px; }
+          #teymur #projects .mycon #down .row .left .one h1 span {
+            padding-left: 6px; }
         #teymur #projects .mycon #down .row .left .one img {
           width: 94px;
           height: 94px;
@@ -534,43 +536,58 @@ body {
         border: 1px solid #e8e8e8;
         clear: left;
         line-height: 19px; }
-        #teymur #projects .mycon #down .row .right .file .upload {
-          border: 1px solid #E8E8E8;
-          border-radius: 5px;
-          margin-top: 170px; }
-          #teymur #projects .mycon #down .row .right .file .upload:hover {
-            border: 1px solid lightblue; }
-          #teymur #projects .mycon #down .row .right .file .upload div {
-            margin-top: 50px; }
-            #teymur #projects .mycon #down .row .right .file .upload div .icon {
-              margin-top: 20px;
-              color: #E9E9E9; }
-          #teymur #projects .mycon #down .row .right .file .upload h1 {
-            font-size: 25px;
-            color: #E9E9E9;
-            margin-bottom: 10px; }
-          #teymur #projects .mycon #down .row .right .file .upload input {
-            display: none; }
-          #teymur #projects .mycon #down .row .right .file .upload label {
-            margin-top: 31px;
-            margin-bottom: 90px;
-            border-radius: 3px;
-            width: 130px;
-            height: 30px;
-            border: 1px solid black;
-            background: #008FFF;
-            background: linear-gradient(#008FFF, #0064FF); }
-            #teymur #projects .mycon #down .row .right .file .upload label i {
-              color: white;
-              padding-top: 7px;
-              padding-right: 20px;
-              margin-left: 5px; }
-              #teymur #projects .mycon #down .row .right .file .upload label i span {
-                color: white;
-                font-family: helvetica;
-                font-size: 13px;
-                font-weight: bold;
-                padding-left: 5px; }
+        #teymur #projects .mycon #down .row .right .file .thumb {
+          height: 230px;
+          width: 215px;
+          background: white;
+          float: left;
+          margin-right: 15px;
+          margin-bottom: 20px;
+          width: 215px;
+          box-shadow: 0 2px 5px lightgrey; }
+          #teymur #projects .mycon #down .row .right .file .thumb .thumbImgWrapper {
+            margin: 5px; }
+            #teymur #projects .mycon #down .row .right .file .thumb .thumbImgWrapper .thumbImg {
+              width: 203px;
+              height: 160px; }
+              #teymur #projects .mycon #down .row .right .file .thumb .thumbImgWrapper .thumbImg:hover {
+                opacity: 0.75; }
+          #teymur #projects .mycon #down .row .right .file .thumb .row1 {
+            margin: 5px;
+            background: #F8F8F8;
+            height: 30px; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row1 .thumbLogo img {
+              height: 30px;
+              width: auto;
+              margin-left: -15px; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row1 .thumbType {
+              margin-left: -15px; }
+              #teymur #projects .mycon #down .row .right .file .thumb .row1 .thumbType a {
+                line-height: 30px;
+                font-size: 11px;
+                text-indent: 6px;
+                float: left; }
+                #teymur #projects .mycon #down .row .right .file .thumb .row1 .thumbType a:hover {
+                  text-decoration: none;
+                  color: blue; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row1 .thumbStar {
+              color: #C4C4C4; }
+          #teymur #projects .mycon #down .row .right .file .thumb .row2 {
+            color: #7d7d7d;
+            margin: 5px;
+            height: 16px;
+            font-size: 11px; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row2 .thumbLikeIcon {
+              margin-left: -15px;
+              float: left; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row2 .thumbLikeCount {
+              margin-left: -15px;
+              float: left; }
+            #teymur #projects .mycon #down .row .right .file .thumb .row2 .thumbUserName {
+              float: right; }
+              #teymur #projects .mycon #down .row .right .file .thumb .row2 .thumbUserName a:hover {
+                color: #171717;
+                text-decoration: none; }
 
 @media only screen and (max-width: 700px) {
   .left {
@@ -873,7 +890,7 @@ body {
           height: 35px; }
         #activity .wrapper .my_container .smallInfo .row1 div .smallInfoName {
           margin: 0px 10px; }
-          #activity .wrapper .my_container .smallInfo .row1 div .smallInfoName p {
+          #activity .wrapper .my_container .smallInfo .row1 div .smallInfoName .name {
             margin-bottom: 0px; }
           #activity .wrapper .my_container .smallInfo .row1 div .smallInfoName a {
             color: #7d7d7d; }

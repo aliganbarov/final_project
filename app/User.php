@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','user_surname', 'email', 'password',
     ];
 
     /**
@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function user_types() {
         return $this->belongsTo('App\UserType');
     }
@@ -31,6 +32,15 @@ class User extends Authenticatable
     public function shares() {
         return $this->hasMany('App\Share');
     }
+
+    public function like_systems() {
+        return $this->hasMany('App\like_system');
+    }
+
+    public function follow_systems() {
+        return $this->hasMany('App\follow_system');
+    }
+
 
     public function addShare(Share $share) {
         $this->shares()->save($share);

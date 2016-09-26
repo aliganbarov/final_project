@@ -32,20 +32,20 @@
                                 </div>
                                 <div class="thumbUserName">
                                     <span>by</span>
-                                    <a href="#" class="user_name">{{ $share->user->name }}</a>
+                                    <a href="/profile/{{$share->users->id}}" class="user_name">{{ $share->users->name }}</a>
                                 </div>
                             </div>
                         </div><!-- end .thumb -->
                     @endforeach
                 </div><!-- end .thumbWrapper -->
                 
-                @foreach ($shares as $share)
+                     @foreach ($shares as $share)
                     <div class="smallInfo hide" id="user_small_{{ $share->id }}">
                         <div class="row1">
                             <div>
                                 <img src="https://mir-s3-cdn-cf.behance.net/user/115/370093.53ad8f34490dd.jpg">
                                 <div class="smallInfoName">
-                                    <p>{{ $share->user->name }}</p>
+                                    <a href="/profile/{{$share->users->id}}" class="name">{{ $share->users->name }}</a>
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <a href="#">Tokyo, Japan</a>
                                 </div>
@@ -61,10 +61,10 @@
                             <div class="smallImgWrapper">
                             <?php 
                                 $i = 0; 
-                                $limit = $share->user->shares->count() < 3 ? $share->user->shares->count() : 3;
+                                $limit = $share->users->shares->count() < 3 ? $share->users->shares->count() : 3;
                             ?>
                                 @while($i < $limit)
-                                <img src="{{ $share->user->shares[$i]->share_content }}" >
+                                <img src="{{ $share->users->shares[$i]->share_content }}" >
                                 <?php $i++ ?>
                                 @endwhile
                             </div>

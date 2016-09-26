@@ -19,10 +19,10 @@
                         <div class="col-md-3  left">
                             <div class=" one" style=" border-top-left-radius: 3px;">
                                 <span><a class="fa fa-pencil" aria-hidden="true"></a></span>
-                                @foreach($shares as $sharee)
-                                    <h1>{{ $sharee->users->name }}<span>{{ $sharee->users->user_surname }}</span></h1>
-                                @endforeach
-                                <img src="/storage/mask.jpg"" alt="">
+                               
+                                    <h1>{{ $user->name }}<span>{{ $user->user_surname }}</span></h1>
+                               
+                                <img src="/storage/mask.jpg" alt="">
                             </div>
                             <div class="col-md-12  two">
                                 <ul>
@@ -55,10 +55,10 @@
                                 <h1><span>Projects</span></h1>
                             </div>
                             <div class="col-md-12  text-center file">
-                                @foreach ($shares as $share)
-                        <div class="thumb" id="{{ $share->id }}">
+                                @foreach ($share as $sharee)
+                        <div class="thumb">
                             <div class="thumbImgWrapper">
-                                <img src="{{ $share->share_content }}" class="thumbImg img-responsive">
+                                <img src="{{ $sharee->share_content }}" class="thumbImg img-responsive">
                             </div>
 
                             <div class="row row1">
@@ -78,19 +78,10 @@
                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-xs-1 thumbLikeCount">
-                                    <p>{{ $share->share_like_count }}</p>
+                                    <p>{{ $sharee->share_like_count }}</p>
                                 </div>
                                 <div class="thumbUserName">
-                                    <span>by</span>
-                                    <a href="#" class="user_name">{{-- {{ $share->user->name }} --}}</a>
                                 </div>
-                                <a  href="/edit/{{ $share->id }}" type="button" class="btn btn-default" >Update</a>
-                                <form method="POST" action="/delete/{{ $share->id }}">
-                                    {{ csrf_field() }}
-                                    <input type="submit" class="btn btn-danger" value="Delete">
-                                </form>
-                                
-
                             </div>
                         </div><!-- end .thumb -->
                     @endforeach
