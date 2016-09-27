@@ -12,9 +12,7 @@ class CreateSharesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shares', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            
+        Schema::create('shares', function (Blueprint $table) {            
             $table->increments('id');
             $table->string('share_title');
             $table->string('share_description');

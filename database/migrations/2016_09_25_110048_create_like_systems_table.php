@@ -15,6 +15,8 @@ class CreateLikeSystemsTable extends Migration
         Schema::create('like_systems', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+      
+
         });
     }
 

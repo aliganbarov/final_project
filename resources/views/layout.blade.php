@@ -18,6 +18,9 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- <link rel="stylesheet" type="text/css" href="assets/sass/partials/_footer.css"> -->
     <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+    
+    <script src="/assets/js/jquery-1.12.4.js"></script>
+        <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
     @yield('header')
 </head>
 <body>
@@ -124,6 +127,8 @@
     <script src="/assets/js/ali.js"></script>
     <script src="/assets/js/settings.js"></script>
     <script src="/assets/js/upload.js"></script>
+    <script src="/assets/js/add.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     
 </body>
 

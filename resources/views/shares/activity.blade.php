@@ -43,11 +43,9 @@
                     <div class="smallInfo hide" id="user_small_{{ $share->id }}">
                         <div class="row1">
                             <div>
-                                <img src="https://mir-s3-cdn-cf.behance.net/user/115/370093.53ad8f34490dd.jpg">
+                                <img src="/storage/mask.jpg">
                                 <div class="smallInfoName">
                                     <a href="/profile/{{$share->users->id}}" class="name">{{ $share->users->name }}</a>
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <a href="#">Tokyo, Japan</a>
                                 </div>
                                 <div class="smallInfoFollow pull-right text-center">
                                     <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Follow</a>

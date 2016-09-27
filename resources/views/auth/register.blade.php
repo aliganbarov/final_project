@@ -33,11 +33,16 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group{{ $errors->has('user_surname') ? ' has-error' : '' }}">
                                 <div class="col-md-6 col-md-offset-4">
                                     {!! \Form::label('user_surname', 'Your Surname') !!}
                                     {!! \Form::text('user_surname', null, 
-                                    ['class'=>'form-control', 'placeholder'=>'Username']) !!}
+                                     ['class'=>'form-control', 'placeholder'=>'Username' ]) !!}
+                                     @if ($errors->has('user_surname'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('user_surname') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 

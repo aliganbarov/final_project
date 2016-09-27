@@ -15,7 +15,7 @@
                                 <div class="content">
                                     <p id="firstP"><a href="#">{{ $share->share_title }}</a></p><br>
                                     <p id="secondP">
-                                        by&nbsp;&nbsp;<span><a href="#">{{-- {{ $share->user->name }} --}}</a></span>
+                                        by&nbsp;&nbsp;<span><a href="/profile/{{$share->users->id}}">{{ $share->users->name }}</a></span>
                                     </p>
                                     <hr>
                                     <p id="thirdP">Interaction Design, Illustration, ...</p>

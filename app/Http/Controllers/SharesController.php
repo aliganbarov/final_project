@@ -16,6 +16,8 @@ use DB;
 
 use App\Share;
 
+use Validator;
+
 class SharesController extends Controller
 {
      public function __construct()
@@ -34,23 +36,30 @@ class SharesController extends Controller
     
 
     public function discover() {
-        // if(Auth::guest())
-            // return redirect()->action('UsersController@login');
+        if(Auth::guest())
+            return redirect()->action('UsersController@login');
 
         $shares = App\Share::with('users')->get();
         return view('shares.discover', compact('shares'));
     }
 
+
+    
+
     public function add() {
+
         return Auth::guest() ? redirect()->action('UsersController@login') : view('shares.add');
     }
 
     public function edit(Share $share) {
+         // if(Auth::guest())
+         //    return redirect()->action('SharesController@activity');
 
         return view('shares.edit',compact('share'));
     }
 
      public function delete(Share $share) {
+        
 
          $share->delete();
          return back();
@@ -80,11 +89,15 @@ class SharesController extends Controller
 
 
 
-
     public function newFile(Request $request) {
+
         if(Auth::guest())
             return redirect()->action('UsersController@login');
-
+            $this->validate($request, [
+                'share_title' => 'required|max:255',
+                'share_description' => 'required',
+                'photo'=>'required',
+                 ]);
     	//add allowed extensions here
     	$allowed_extensions = ['jpg', 'png', 'gif'];
     	$user = Auth::user();
@@ -94,20 +107,12 @@ class SharesController extends Controller
 		        $request->file('photo')->move('storage', $fileName);
 
 		   		$share = new App\Share($request->all());
-		   		$share->share_content = 'storage/' . $fileName;
+		   		$share->share_content = '/storage/' . $fileName;
 		   		$user->addShare($share);
+
     		}
     	}
         
     	return back();
-   	}
-
-    // public function upload() {
-    //     if(Auth::guest())
-    //         return redirect()->action('UsersController@login');
-        
-    //     return view('shares.cavid');
-    // }
-
-    
+   	}   
 }
