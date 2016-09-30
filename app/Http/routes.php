@@ -40,4 +40,20 @@ Route::post('/like', 'SharesController@like');
 Route::post('/follow', 'SharesController@follow');	
 
 
+// ADMIN PANEL ROUTES
+Route::get('/admin', 'AdminsController@index');
+Route::get('/admin/sections', 'AdminsController@sections');
+
+Route::get('/admin/users', 'AdminsController@users');
+Route::get('/admin/users/delete/{user}', 'AdminsController@delete_user');
+Route::get('/admin/users/edit/{user}', 'AdminsController@edit_user');
+Route::get('/admin/users/edit/{user}', 'AdminsController@edit_user');
+Route::post('/admin/users/edit/{user}', 'AdminsController@update_user');
+
+Route::get('/admin/{user}/shares', 'AdminsController@user_shares');
+
+Route::get('/admin/shares', 'AdminsController@shares');
+Route::get('/admin/shares/delete/{share}', 'AdminsController@delete_share');
+
+
 });

@@ -26,7 +26,4 @@
 			</form>
 		</div>
 	</div>
-	  <script type="text/javascript">
-	 CKEDITOR.replace( 'share_description' );
-</script>
 @stop

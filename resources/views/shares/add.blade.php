@@ -29,10 +29,10 @@
                     </span>
                 @endif
 				<p>SELECT FILE</p>
-				<input type="file" name="file" class="form-control{{ $errors->has('file') ? ' has-error' : '' }}">
-				@if ($errors->has('file'))
+				<input type="file" name="photo" class="form-control{{ $errors->has('photo') ? ' has-error' : '' }}">
+				@if ($errors->has('photo'))
                     <span class="alert-danger">
-                        <strong>{{ $errors->first('file') }}</strong>
+                        <strong>{{ $errors->first('photo') }}</strong>
                     </span>
                 @endif
 				<input type="submit" name="submit" value="Add File">
