@@ -25,27 +25,21 @@
 
                             <div class="row row2">
                                 <div class="col-xs-1 thumbLikeIcon">
-                                   <form method="POST" action="{{url('/like')}}">
-                                       <input type="submit" name="beyen" id="bb" value="beyen" style="">
-                                       {{-- <label for="bb" ><i class="fa fa-thumbs-up" aria-hidden="true"></i></label> --}}
-                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                       <input type="hidden" name="share_id" value="{{ $share->id}}">     
-                                   </form> 
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-xs-1 thumbLikeCount">
-                                    <p>{{ $share->like_systems->where('share_id',$share->id)->count() }}</p>  
+                                    <p>{{ $share->share_like_count }}</p>
                                 </div>
                                 <div class="thumbUserName">
                                     <span>by</span>
                                     <a href="/profile/{{$share->users->id}}" class="user_name">{{ $share->users->name }}</a>
                                 </div>
                             </div>
-                                                  
                         </div><!-- end .thumb -->
                     @endforeach
                 </div><!-- end .thumbWrapper -->
                 
-                    @foreach ($shares as $share)
+                     @foreach ($shares as $share)
                     <div class="smallInfo hide" id="user_small_{{ $share->id }}">
                         <div class="row1">
                             <div>
@@ -92,4 +86,5 @@
             </div>
         </div>
 </section>
+
 @stop

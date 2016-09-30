@@ -35,11 +35,6 @@
                                     <li><i class="fa fa-user pull-left" aria-hidden="true"></i>
                                         <p>FOLLOWING</p><span class="pull-right">0</span></li>
                                 </ul>
-                                <form method="POST" action="{{url('/follow')}}">
-                                       <input type="submit" name="follow" value="follow">
-                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                       <input type="hidden" name="user_id" value="{{-- {{  }} --}}">
-                                </form> 
                             </div>
                             <div class="col-md-12  three">
                                 <span><a class="fa fa-pencil" aria-hidden="true"></a></span>
