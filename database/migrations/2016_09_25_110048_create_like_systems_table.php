@@ -14,9 +14,9 @@ class CreateLikeSystemsTable extends Migration
     {
         Schema::create('like_systems', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('share_id');
+            $table->integer('user_id');
             $table->timestamps();
-      
-
         });
     }
 

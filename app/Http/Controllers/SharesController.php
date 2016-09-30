@@ -12,9 +12,13 @@ use Auth;
 
 use App\User;
 
+use App\follow_system;
+
 use DB;
 
 use App\Share;
+
+use App\like_system;
 
 use Validator;
 
@@ -24,12 +28,64 @@ class SharesController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
+    public function like(Request $request) {
+
+        $liked = App\like_system::where('share_id',$request->share_id)->where('user_id',Auth::User()->id)->get();
+        
+        $share = App\Share::find($request->share_id);
+         
+
+        if(!count($liked)){
+           
+            $like = new App\like_system;
+            $like->user_id=Auth::User()->id;            
+            $share->like_systems()->save($like);
+        }
+        else{
+            $liked[0]->delete();
+        }
+      
+        
+        return redirect('/activity');
+
+            
+        
+        
+    }
+
+    public function follow(Request $request) {
+
+            $follows = App\follow_system::where('user_id',$request->user_id)->get();
+            
+            
+            $user = App\User::find($request->user_id);
+            if (!count($follows)) {
+
+                $follow = new App\follow_system;
+                $follow->user_id=Auth::User()->id;            
+                $user->follow_systems()->save($follow);
+               
+            }else{
+                $follows[0]->delete();
+            }
+            
+
+            return back();
+            
+           
+
+            
+        
+        
+    }
+
     public function activity() {
         if(Auth::guest())
             return redirect()->action('UsersController@login');
 
-    	$shares = App\Share::all();
+    	 $shares = App\Share::all();
+
     	return view('shares.activity', compact('shares'));
     }
 
@@ -67,12 +123,12 @@ class SharesController extends Controller
 
     public function update(Request $request , Share $share) {
 
-        $allowed_extensions = ['jpg', 'png', 'gif'];
+        $allowed_extensions = ['jpg', 'png', 'gif','mp3'];
         $user = Auth::user();
-        if ($request->hasFile('photo')) {
-            if (in_array($request->file('photo')->getClientOriginalExtension(), $allowed_extensions)) {
-                $fileName= time() . $request->file('photo')->getClientOriginalName();
-                $request->file('photo')->move('storage', $fileName);
+        if ($request->hasFile('file')) {
+            if (in_array($request->file('file')->getClientOriginalExtension(), $allowed_extensions)) {
+                $fileName= time() . $request->file('file')->getClientOriginalName();
+                $request->file('file')->move('storage', $fileName);
 
                 $share->share_content = '/storage/' . $fileName;
                 $share->save();
@@ -87,8 +143,6 @@ class SharesController extends Controller
       
     }
 
-
-
     public function newFile(Request $request) {
 
         if(Auth::guest())
@@ -96,15 +150,15 @@ class SharesController extends Controller
             $this->validate($request, [
                 'share_title' => 'required|max:255',
                 'share_description' => 'required',
-                'photo'=>'required',
+                'file'=>'required',
                  ]);
     	//add allowed extensions here
-    	$allowed_extensions = ['jpg', 'png', 'gif'];
+    	$allowed_extensions = ['jpg', 'png', 'gif','mp3'];
     	$user = Auth::user();
-    	if ($request->hasFile('photo')) {
-    		if (in_array($request->file('photo')->getClientOriginalExtension(), $allowed_extensions)) {
-    			$fileName= time() . $request->file('photo')->getClientOriginalName();
-		        $request->file('photo')->move('storage', $fileName);
+    	if ($request->hasFile('file')) {
+    		if (in_array($request->file('file')->getClientOriginalExtension(), $allowed_extensions)) {
+    			$fileName= time() . $request->file('file')->getClientOriginalName();
+		        $request->file('file')->move('storage', $fileName);
 
 		   		$share = new App\Share($request->all());
 		   		$share->share_content = '/storage/' . $fileName;
@@ -114,5 +168,5 @@ class SharesController extends Controller
     	}
         
     	return back();
-   	}   
+   	}
 }

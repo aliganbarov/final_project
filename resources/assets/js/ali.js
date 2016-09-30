@@ -1,4 +1,8 @@
 /* GIVING RESPONSIVITY FOR PANELS */
+
+
+
+
 var panelWidth = $('.thumb').width() + 10 * 2; //.thumb width + 10 * 2 for margins
 
 FixPanelSizes();
@@ -190,5 +194,7 @@ function SmallInfoConfig(bigId, smallId) {
 		'left' 	: leftPos + 'px'
 	})
 	$(smallId).removeClass('hide');
-}
+};
+
+
 

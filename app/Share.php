@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Share extends Model
 {
-	protected $fillable = ['share_title', 'share_description', 'share_content'];
+	protected $fillable = ['share_id','share_title', 'share_description', 'share_content'];
 
     public function share_formats() {
     	return $this->belongsTo('App\ShareFormat');
@@ -20,8 +20,12 @@ class Share extends Model
     	return $this->belongsTo('App\User','user_id');
     }
 
-     public function like_systems() {
-        return $this->hasMany('App\like_system');
+    public function like_systems()
+    {
+    return $this->hasMany('App\like_system');
     }
+    
+
+
 
 }

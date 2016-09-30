@@ -124,11 +124,12 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/assets/js/main.js"></script>
+    
     <script src="/assets/js/ali.js"></script>
-    <script src="/assets/js/settings.js"></script>
-    <script src="/assets/js/upload.js"></script>
-    <script src="/assets/js/add.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+
+
     
 </body>
 

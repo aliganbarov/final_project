@@ -33,8 +33,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Share');
     }
 
-    public function like_systems() {
-        return $this->hasMany('App\like_system');
+    public function like_systems()
+    {
+    return $this->hasMany('App\like_system');
     }
 
     public function follow_systems() {
@@ -44,6 +45,11 @@ class User extends Authenticatable
 
     public function addShare(Share $share) {
         $this->shares()->save($share);
+        return back();
+    }
+
+    public function addlike(like_system $like_sys) {
+        $this->like_systems()->save($like_sys);
         return back();
     }
 }

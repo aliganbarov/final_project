@@ -18,7 +18,7 @@ class CreateSharesTable extends Migration
             $table->string('share_description');
             $table->string('share_content');
             $table->integer('share_view_count');
-            $table->integer('share_like_count');
+            $table->integer('like_system_id');
             $table->integer('share_format_id');
             $table->integer('share_category_id');
             $table->integer('user_id')->unsigned();
