@@ -16,19 +16,21 @@
                                     <img src="https://a3.behance.net/img/galleries/icons/square/1x/gallery-4.png?cb=244765838">
                                 </div>
                                 <div class="col-xs-6 thumbType">
-                                    <a href="#">Motion</a>
+                                    <a href="/profile/{{$share->users->id}}">Motion</a>
                                 </div>
-                                <div class="col-xs-1 thumbStar pull-right">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
+                                
                             </div><!-- end .row1 -->
 
                             <div class="row row2">
                                 <div class="col-xs-1 thumbLikeIcon">
-                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <form method="POST" action="/like">
+                                        <input type="submit" name="beyen"  value="beyen" >
+                                        <input type="hidden" name="share_id" value="{{ $share->id }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    </form>
                                 </div>
                                 <div class="col-xs-1 thumbLikeCount">
-                                    <p>{{ $share->share_like_count }}</p>
+                                    <p>{{ $share->like_systems->where('share_id', $share->id )->count() }}</p>
                                 </div>
                                 <div class="thumbUserName">
                                     <span>by</span>
@@ -47,9 +49,7 @@
                                 <div class="smallInfoName">
                                     <a href="/profile/{{$share->users->id}}" class="name">{{ $share->users->name }}</a>
                                 </div>
-                                <div class="smallInfoFollow pull-right text-center">
-                                    <a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Follow</a>
-                                </div>
+                                
                             </div>
                         </div><!-- end .row1 -->
 
@@ -69,15 +69,12 @@
                         </div><!-- end .row2 -->
 
                         <div class="row3">
-                            <div class="smallImgViews">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                <span>1003</span>
-                            </div>
+                            
                             <div class="smallImgLike">
-                                <i class="fa fa-thumbs-up" aria-hidden="true"></i><span>412</span>
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i><span></span>
                             </div>
                             <div class="smallImgFollowe">
-                                <i class="fa fa-users" aria-hidden="true"></i><span>1003</span>
+                                <i class="fa fa-users" aria-hidden="true"></i><span></span>
                             </div>
                         </div>      
                     </div><!-- end .smallInfo -->

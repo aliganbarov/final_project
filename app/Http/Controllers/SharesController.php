@@ -47,7 +47,7 @@ class SharesController extends Controller
         }
       
         
-        return redirect('/activity');
+        return back();
 
             
         
@@ -55,16 +55,18 @@ class SharesController extends Controller
     }
 
     public function follow(Request $request) {
+        
+            $follows = App\follow_system::where('share_user_id',$request->share_user_id)->where('user_id',Auth::User()->id)->get();
+           
+            $shareUser = App\User::find($request->share_user_id);
 
-            $follows = App\follow_system::where('user_id',$request->user_id)->get();
-            
-            
-            $user = App\User::find($request->user_id);
             if (!count($follows)) {
 
                 $follow = new App\follow_system;
-                $follow->user_id=Auth::User()->id;            
-                $user->follow_systems()->save($follow);
+                $follow->user_id=Auth::User()->id;
+
+                $follow->share_user_id=$request->share_user_id;    
+                $follow->save();
                
             }else{
                 $follows[0]->delete();
@@ -85,7 +87,6 @@ class SharesController extends Controller
             return redirect()->action('UsersController@login');
 
     	 $shares = App\Share::all();
-
     	return view('shares.activity', compact('shares'));
     }
 
@@ -145,15 +146,14 @@ class SharesController extends Controller
 
     public function newFile(Request $request) {
 
-        if(Auth::guest())
-            return redirect()->action('UsersController@login');
+        
             $this->validate($request, [
                 'share_title' => 'required|max:255',
                 'share_description' => 'required',
                 'file'=>'required',
                  ]);
     	//add allowed extensions here
-    	$allowed_extensions = ['jpg', 'png', 'gif','mp3'];
+    	$allowed_extensions = ['jpg', 'png', 'gif'];
     	$user = Auth::user();
     	if ($request->hasFile('file')) {
     		if (in_array($request->file('file')->getClientOriginalExtension(), $allowed_extensions)) {

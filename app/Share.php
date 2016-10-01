@@ -24,6 +24,12 @@ class Share extends Model
     {
     return $this->hasMany('App\like_system');
     }
+
+    public function follow_systems()
+    {
+    return $this->hasMany('App\follow_system');
+    }
+    
     
 
 

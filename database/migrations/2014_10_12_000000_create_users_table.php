@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->boolean('user_status');
             $table->integer('user_type_id');
-            $table->integer('share_id');
             $table->rememberToken();
             $table->timestamps();
         });

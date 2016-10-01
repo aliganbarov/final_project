@@ -18,12 +18,11 @@
                                         by&nbsp;&nbsp;<span><a href="/profile/{{$share->users->id}}">{{ $share->users->name }}</a></span>
                                     </p>
                                     <hr>
-                                    <p id="thirdP">Interaction Design, Illustration, ...</p>
+                                    <p id="thirdP">{{ $share->share_description }}</p>
                                     
                                     <div class="bottom">
                                         <i class="fa fa-thumbs-o-up" aria-hidden="true">&nbsp;&nbsp;367</i>
-                                        <i class="fa fa-eye" aria-hidden="true">&nbsp;&nbsp;3871</i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        
                                     </div>
                                 </div>
                             </div>

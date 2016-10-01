@@ -94,7 +94,7 @@
 						<label>Name</label>
 						<input type="text" name="name" class="form-control" placeholder="{{ $user->name }}">
 						<label>Surname</label>
-						<input type="text" name="surname" class="form-control" placeholder="{{ $user->surname }}">
+						<input type="text" name="surname" class="form-control" placeholder="{{ $user->user_surname}}">
 						<label>Email</label>
 						<input type="email" name="email" class="form-control" placeholder="{{ $user->email }}">
 						<label>User type</label>

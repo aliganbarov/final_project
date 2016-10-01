@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\follow_system;
 use Auth;
 
 use App\Share;
@@ -26,28 +26,32 @@ class UsersController extends Controller
     }
 
     public function settings() {
-    	if(Auth::guest())
-        return redirect()->action('UsersController@login');
-
     	return view('users.settings');
     }
 
    public function profile() {
-        if(Auth::guest())
-
-        return redirect()->action('UsersController@login');
 
         $shares =$this->user->shares;
-        return view('users.profile', compact('shares'));
+        
+        $following = follow_system::where('user_id',Auth::user()->id)->count();
+        $follower = follow_system::where('share_user_id',Auth::user()->id)->count();
+        // return $shares->follow_systems;
+        return view('users.profile', compact('shares','follower','following'));
     }
 
     public function userP(User $user) {
-        if(Auth::guest())
-
-        return redirect()->action('UsersController@login');
-
+        if($user->id == Auth::user()->id){
+            return redirect('/profile');
+        }
         $share = $user->shares;
-        return view('users.userP', compact('share','user'));
+        $following = follow_system::where('user_id',$user->id)->count();
+        $follower = follow_system::where('share_user_id',$user->id)->count();
+
+        $followOrNot = follow_system::where('user_id',Auth::user()->id)->where('share_user_id',$user->id)->count();
+        
+
+        // return $shares->follow_systems;
+        return view('users.userP', compact('share','user','follower','following','followOrNot','owner'));
     }
 
     public function discover() {

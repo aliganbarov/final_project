@@ -14,7 +14,9 @@ class CreateFollowSystemsTable extends Migration
     {
         Schema::create('follow_systems', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('share_user_id');
             $table->timestamps();
         });
     }

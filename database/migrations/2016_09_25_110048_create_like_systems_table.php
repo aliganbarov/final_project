@@ -14,8 +14,10 @@ class CreateLikeSystemsTable extends Migration
     {
         Schema::create('like_systems', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('share_id');
-            $table->integer('user_id');
+            $table->integer('share_id')->unsigned();
+            $table->foreign('share_id')->references('id')->on('shares')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

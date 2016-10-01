@@ -29,7 +29,7 @@
                     </span>
                 @endif
 				<p>SELECT FILE</p>
-				<input type="file" name="photo" class="form-control{{ $errors->has('photo') ? ' has-error' : '' }}">
+				<input type="file" name="file" class="form-control{{ $errors->has('photo') ? ' has-error' : '' }}">
 				@if ($errors->has('photo'))
                     <span class="alert-danger">
                         <strong>{{ $errors->first('photo') }}</strong>
@@ -42,7 +42,5 @@
 		</div>
 	</div>
 
-       <script type="text/javascript">
-	 CKEDITOR.replace( 'share_description' );
-</script>
+    
 @stop
