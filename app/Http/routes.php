@@ -34,6 +34,8 @@ Route::get('/delete/{share}', 'SharesController@delete');
 Route::post('/delete/{share}', 'SharesController@delete');
 Route::get('/settings', 'UsersController@settings');
 Route::get('/profile', 'UsersController@profile');
+Route::get('/profile/{user}/editprofile', 'UsersController@edit_profile');
+Route::post('/profile/updateprofile', 'UsersController@update_profile');
 Route::get('/profile/{user}', 'UsersController@userP');
 Route::get('/edit/{share}', 'SharesController@edit');
 Route::post('/like', 'SharesController@like');	
@@ -49,6 +51,7 @@ Route::get('/admin/users/delete/{user}', 'AdminsController@delete_user');
 Route::get('/admin/users/edit/{user}', 'AdminsController@edit_user');
 Route::get('/admin/users/edit/{user}', 'AdminsController@edit_user');
 Route::post('/admin/users/edit/{user}', 'AdminsController@update_user');
+Route::get('/admin/users/makeadmin/{user}', 'AdminsController@make_admin');
 
 Route::get('/admin/{user}/shares', 'AdminsController@user_shares');
 

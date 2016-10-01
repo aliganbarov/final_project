@@ -12,12 +12,12 @@ $(window).resize(function(){
 /* *************************************************************************** */
 
 //Changing text of thumbType on hover
-$('.thumbType a').mouseenter(function(){
-	$(this).text('View Gallery');
-})
-$('.thumbType a').mouseleave(function(){
-	$(this).text('Motion');
-})
+// $('.thumbType a').mouseenter(function(){
+// 	$(this).text('View Gallery');
+// })
+// $('.thumbType a').mouseleave(function(){
+// 	$(this).text('{{Motion}}');
+// })
 
 /* *************************************************************************** */
 

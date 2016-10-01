@@ -15,9 +15,9 @@
                     <div class="row">
                         <div class="col-md-3  left">
                             <div class=" one" style=" border-top-left-radius: 3px;">
-                                <span><a class="fa fa-pencil" aria-hidden="true"></a></span>
+                                <span><a href="/profile/{{Auth::user()->id}}/editprofile" class="fa fa-pencil" aria-hidden="true"></a></span>
                                     <h1>{{ \Auth::user()->name }}<span>{{ \Auth::user()->user_surname }}</span></h1>
-                                <img src="/storage/mask.jpg">
+                                <img src="{{ Auth::user()->avatar }}">
                             </div>
                             <div class="col-md-12  two">
                                 <ul>

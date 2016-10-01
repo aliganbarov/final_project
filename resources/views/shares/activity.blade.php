@@ -16,8 +16,17 @@
                                     <img src="https://a3.behance.net/img/galleries/icons/square/1x/gallery-4.png?cb=244765838">
                                 </div>
                                 <div class="col-xs-6 thumbType">
-                                    <a href="/profile/{{$share->users->id}}">Motion</a>
+                                    <a href="/profile/{{$share->users->id}}">{{ $share->users->user_type }}</a>
                                 </div>
+
+                                <script>
+                                    $('.thumbType a').mouseenter(function(){
+                                        $(this).text('View Gallery');
+                                    })
+                                    $('.thumbType a').mouseleave(function(){
+                                        $(this).text('{{$share->users->user_type}}');
+                                    })
+                                </script>
                                 
                             </div><!-- end .row1 -->
 
@@ -85,3 +94,5 @@
 </section>
 
 @stop
+
+

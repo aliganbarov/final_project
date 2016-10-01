@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
+use Auth;
 use App\Share;
 use App\User;
 use DB;
@@ -14,16 +14,16 @@ use DB;
 class AdminsController extends Controller
 {
     public function index() {
-    	return view('admin.index');
+    	return Auth::user()->user_status ? view('admin.index') : view('notfound');
     }
 
     public function sections() {
-    	return view('admin.sections');
+        return Auth::user()->user_status ? view('admin.sections') : view('notfound');
     }
 
     public function shares() {
     	$shares = Share::with('users')->get();
-    	return view('admin.shares', compact('shares'));
+        return Auth::user()->user_status ? view('admin.shares', compact('shares')) : view('notfound');
     }
 
     public function delete_share(Share $share) {
@@ -32,16 +32,16 @@ class AdminsController extends Controller
     }
 
     public function edit_share(Share $share) {
-        return view('admin.edit_share', compact('share'));
+        return Auth::user()->user_status ? view('admin.edit_share', compact('share')) : view('notfound');
     }
 
     public function users() {
     	$users = User::all();
-    	return view('admin.users', compact('users'));
+        return Auth::user()->user_status ? view('admin.users', compact('users')) : view('notfound');
     }
 
     public function edit_user(User $user) {
-        return view('admin.edit_user', compact('user'));
+        return Auth::user()->user_status ? view('admin.edit_user', compact('user')) : view('notfound');
     }
 
     public function delete_user(User $user) {
@@ -62,6 +62,13 @@ class AdminsController extends Controller
 
     public function user_shares(User $user) {
         $shares = $user->shares()->get();
-        return view('admin.user_shares', compact('shares'));
+        return Auth::user()->user_status ? view('admin.user_shares', compact('shares')) : view('notfound');
+
+    }
+
+    public function make_admin(User $user) {
+        $user->user_status = 1;
+        $user->save();
+        return back();
     }
 }

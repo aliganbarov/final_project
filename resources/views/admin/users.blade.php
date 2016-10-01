@@ -91,6 +91,7 @@
 									<td>{{ $user->email }}</td>
 									<td>
 										<a href="users/edit/{{ $user->id }}" class="btn btn-primary">Edit</a>
+										<a href="users/makeadmin/{{ $user->id }}" class="btn btn-info">Make Admin</a>
 										<a href="users/delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
 									</td>
 								</tr>
