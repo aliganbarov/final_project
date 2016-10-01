@@ -54,7 +54,7 @@
                     <div class="smallInfo hide" id="user_small_{{ $share->id }}">
                         <div class="row1">
                             <div>
-                                <img src="/storage/mask.jpg">
+                                <img src="{{ $share->users->avatar }}">
                                 <div class="smallInfoName">
                                     <a href="/profile/{{$share->users->id}}" class="name">{{ $share->users->name }}</a>
                                 </div>

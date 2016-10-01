@@ -86,7 +86,8 @@ class SharesController extends Controller
         if(Auth::guest())
             return redirect()->action('UsersController@login');
 
-    	 $shares = App\Share::all();
+    	$shares = App\Share::with('users')->get();
+        // return $shares;
     	return view('shares.activity', compact('shares'));
     }
 

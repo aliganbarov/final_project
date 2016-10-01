@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="profileLogo">
-                    <img src="https://a3.behance.net/img/profile/no-image-115.jpg?cb=181952656" class="avatar">
+                    <img src="{{ Auth::user()->avatar }}" class="avatar">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                     <div class="profileMenu">
                     <ul>
